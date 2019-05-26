@@ -1,10 +1,12 @@
+import exception.InvalidDirectionException;
+import exception.InvalidPositionException;
+
 public class ToyRobot {
     private int position_x;
     private int position_y;
     private Direction direction;
 
     public ToyRobot() {
-        setDefault();
     }
 
     public void place(int position_x, int position_y, Direction direction) {
@@ -37,10 +39,12 @@ public class ToyRobot {
         this.direction = direction;
     }
 
-    private void setDefault() {
-        position_x = 0;
-        position_y = 0;
-        direction = Direction.NONE;
+    private void movePositionX(int position_x) {
+        this.position_x = position_x + this.position_x;
+    }
+
+    private void movePositionY(int position_y) {
+        this.position_y = position_y + this.position_y;
     }
 
     /**
@@ -50,37 +54,38 @@ public class ToyRobot {
      * @throws InvalidDirectionException if Robot direction is DIRECTION.NONE.
      * */
     public void move(Table table) throws Exception {
+
         switch (direction) {
             case NORTH:
-                if(position_y < table.getHigher_edge() - 2) {
-                    position_y++;
+                if(position_y < table.getHigher_edge() - 1) {
+                    movePositionY(1);
                 } else {
-                    throw new InvalidPositionException("Robot is on the edge!");
+                    throw new InvalidPositionException();
                 }
                 break;
             case EAST:
-                if(position_x < table.getHigher_edge() - 2) {
-                    position_x++;
+                if(position_x < table.getHigher_edge() - 1) {
+                    movePositionX(1);
                 } else {
-                    throw new InvalidPositionException("Robot is on the edge!");
+                    throw new InvalidPositionException();
                 }
                 break;
             case SOUTH:
                 if(position_y > table.getLower_edge()) {
-                    position_y--;
+                    movePositionY(-1);
                 } else {
-                    throw new InvalidPositionException("Robot is on the edge!");
+                    throw new InvalidPositionException();
                 }
                 break;
             case WEST:
                 if(position_x > table.getLower_edge()) {
-                    position_x--;
+                    movePositionX(-1);
                 } else {
-                    throw new InvalidPositionException("Robot is on the edge!");
+                    throw new InvalidPositionException();
                 }
                 break;
             default:
-                throw new InvalidDirectionException("Invalid Orientation");
+                throw new InvalidDirectionException();
 
         }
     }
@@ -104,7 +109,7 @@ public class ToyRobot {
                 direction = command.isLeft(command) ? Direction.SOUTH : Direction.NORTH;
                 break;
             default:
-                throw new InvalidDirectionException("Invalid Orientation");
+                throw new InvalidDirectionException();
         }
     }
 
