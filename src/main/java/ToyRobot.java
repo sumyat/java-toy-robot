@@ -49,36 +49,36 @@ public class ToyRobot {
 
     /**
      * @desc Move the robot to one unit either position_x or position_y.
-     * @param table which Robot moves around.
-     * @throws InvalidPositionException if Robot moves to the outside the table.
+     * @param squareTable which Robot moves around.
+     * @throws InvalidPositionException if Robot moves to the outside the squareTable.
      * @throws InvalidDirectionException if Robot direction is DIRECTION.NONE.
      * */
-    public void move(Table table) throws Exception {
+    public void move(SquareTable squareTable) throws Exception {
 
         switch (direction) {
             case NORTH:
-                if(position_y < table.getHigher_edge() - 1) {
+                if(position_y < squareTable.getHigher_edge() - 1) {
                     movePositionY(1);
                 } else {
                     throw new InvalidPositionException();
                 }
                 break;
             case EAST:
-                if(position_x < table.getHigher_edge() - 1) {
+                if(position_x < squareTable.getHigher_edge() - 1) {
                     movePositionX(1);
                 } else {
                     throw new InvalidPositionException();
                 }
                 break;
             case SOUTH:
-                if(position_y > table.getLower_edge()) {
+                if(position_y > squareTable.getLower_edge()) {
                     movePositionY(-1);
                 } else {
                     throw new InvalidPositionException();
                 }
                 break;
             case WEST:
-                if(position_x > table.getLower_edge()) {
+                if(position_x > squareTable.getLower_edge()) {
                     movePositionX(-1);
                 } else {
                     throw new InvalidPositionException();

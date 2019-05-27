@@ -1,15 +1,13 @@
 import org.junit.Test;
-
-/**
- * Created by sumyatnoepwint on 26/5/19.
- */
+import static org.assertj.core.api.Assertions.assertThat;
 public class CommandTest {
 
     @Test
-    public void testIsLeftTrue() throws Exception {
-    }
-
-    @Test
-    public void testIsLeftFalse() throws Exception {
+    public void testIsLeft() throws Exception {
+        assertThat(Command.LEFT.isLeft(Command.LEFT)).isTrue();
+        assertThat(Command.LEFT.isLeft(Command.RIGHT)).isFalse();
+        assertThat(Command.LEFT.isLeft(Command.MOVE)).isFalse();
+        assertThat(Command.LEFT.isLeft(Command.PLACE)).isFalse();
+        assertThat(Command.LEFT.isLeft(Command.REPORT)).isFalse();
     }
 }

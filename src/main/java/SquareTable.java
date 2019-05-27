@@ -1,8 +1,8 @@
-public class Table {
+public class SquareTable {
     private int lower_edge;
     private int higher_edge;
 
-    public Table(int lower_edge, int higher_edge) {
+    public SquareTable(int lower_edge, int higher_edge) {
         this.lower_edge = lower_edge;
         this.higher_edge = higher_edge;
     }
