@@ -17,7 +17,7 @@ dependencies {
 }
 
 task installRunConfiguration(type: Copy) {
-    from file("${project.projectDir}/config/runConfigurations/Days_Calculator.xml")
+    from file("${project.projectDir}/config/runConfigurations/ToyRobot.xml")
 
     into file("${project.rootDir}/.idea/runConfigurations")
 
