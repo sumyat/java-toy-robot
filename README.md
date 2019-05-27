@@ -8,7 +8,7 @@ prevented from falling to destruction. Any movement that would result in the
 robot falling from the squareTable must be prevented, however further valid
 movement commands must still be allowed.
 
-How To Run:
+#How To Run:
 ## Git clone https://github.com/sumyat/java-toy-robot
 
 ## Install Gradle
