@@ -25,4 +25,3 @@ task installRunConfiguration(type: Copy) {
         println('Imported Run Configurations')
     }
 }
-//Test
