@@ -28,3 +28,4 @@ For Windows: specify the path where you installed Gradle.
 - Start `ToyRobot` from Run Configuration.
 
 
+Testing
